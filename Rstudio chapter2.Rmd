@@ -4,6 +4,55 @@ author: "蔡世賢"
 date: "9/30/2020"
 output: html_document
 ---
+```{r}
+install.packages("googlesheets4")
+library(googlesheets4)
+```
+```{r}
+install.packages("devtools")
+```
+```{r}
+install.packages("tidyverse")
+
+```
+```{r}
+library(knitr)
+purl("2020-09-30.Rmd")
+```
+```{r}
+a <- 2
+a = 2 # = 與 <-同義'
+
+```
+```{r}
+3 -> b
+```
+```{r}
+2
+4
+```
+
+```{r}
+my_108_total_credits <- 15
+_108_total_credits <- 15
+108_total_credits <- 15
+_my_108_total_credits <- 15
+my.108.total_credits <- 15
+.108.total_credits <- 15 # 隱藏變數
+.my.108.total_credits <- 15
+我的108學年總學分數 <- 15
+`我的108學年總學分數` <- 15 # 特殊名稱處理，`不是名稱的一部份
+`.108.total_credits` <- 15
+```
+
+```{r}
+a <- 15 # 變數設定
+b <- a # 呼叫a的值，用來設定變數b的值，相當於 b <- 15
+c <- y
+```
+```{r}
+a+b
+```
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
