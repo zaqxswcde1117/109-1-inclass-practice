@@ -1,0 +1,137 @@
+---
+title: '20201125'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+vectorExample <- c("小明","小英","大雄")
+vectorExample
+# 有多少位置可選：
+length(vectorExample)
+```
+```{r}
+listExample <- 
+  list(
+    student="小明",
+    `學期`=list(
+      `108-1`=list(
+        list(
+          name="個體經濟學",
+          teacher="Alice",
+          grade=85
+        )
+      ),
+      `108-2`=list(
+        list(
+          name="總體經濟學",
+          teacher="Mark",
+          grade=78
+        )
+      )
+    )
+  )
+listExample
+# 有多少位置可選：
+length(listExample)
+```
+```{r}
+  `.台北市預報元素值` <- 
+  list(
+    city="台北市",
+    high=25,
+    low=18
+  )
+`.新北市預報元素值` <- 
+  list(
+    city="新北市",
+    high=24,
+    low=15
+  )
+
+library(lubridate)
+`今明天氣` <-
+  list(
+    `今天日期`=ymd("2020-03-31"),
+    `明天天氣`=ymd("2020-04-01"),
+    `各地預報`=list(
+      `.台北市預報元素值`,
+      `.新北市預報元素值`
+      )
+
+  )
+```
+```{r}
+# 有多少名字可選：
+names(listExample)
+```
+```{r}
+listExample$student
+listExample$`學期` # 特殊命名依然要用反頓點呼叫
+```
+```{r}
+listExample[["student"]]
+listExample$student
+
+listExample[["學期"]] # 小心不是反頓點喔。
+listExample$`學期`
+```
+```{r}
+a <- c(2, 5, 7)
+a[c(4,5)]
+a[c(4,5)] <- c(8,12)
+print(a)
+```
+```{r}
+list(1, list(2, 3, list(4), 5), 7)
+# 不會等於
+list(1, 2, 3, 4, 5, 7)
+```
+```{r}
+thirdOrder <-
+  list(
+    restaurant="Tijo Kitchen",
+    date=lubridate::mdy("Nov 8, 2020"),
+    order=list(
+      list(
+        item="韓式泡菜黑咖哩飯",
+        quantity=1
+      )
+    )
+  )
+list(thirdOrder, total=160)
+# 並不會等於
+list(
+    restaurant="Tijo Kitchen",
+    date=lubridate::mdy("Nov 8, 2020"),
+    order=list(
+      list(
+        item="韓式泡菜黑咖哩飯",
+        quantity=1
+      )
+    ),
+    total=160
+)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
